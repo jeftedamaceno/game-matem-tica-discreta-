@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pipeline do Jogo de Lógica</title>
+    <title>Pipeline do Jogo de Matemática Discreta</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
@@ -68,7 +68,7 @@
 
         // Pipeline de Leitura do CSV
         function carregarDados() {
-            Papa.parse("jogo.csv", {
+            Papa.parse("respostas.csv", {
                 download: true,
                 header: true,
                 delimiter: ";",
