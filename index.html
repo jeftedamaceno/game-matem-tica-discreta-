@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline do Jogo de Lógica</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .card-flip { perspective: 1000px; }
+        .card-inner { transition: transform 0.6s; transform-style: preserve-3d; }
+        .flipped { transform: rotateY(180deg); }
+        .card-front, .card-back { backface-visibility: hidden; }
+        .card-back { transform: rotateY(180deg); }
+    </style>
+</head>
+<body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="max-w-md w-full text-center">
+        <h1 class="text-3xl font-bold mb-2 text-indigo-400">Card Game de Lógica</h1>
+        <p class="text-slate-400 mb-6">Clique na carta para revelar a dica e a resposta!</p>
+
+        <div id="card-container" class="card-flip w-full h-96 cursor-pointer hidden">
+            <div id="card-inner" class="card-inner w-full h-full relative" onclick="toggleCard()">
+                
+                <div class="card-front absolute w-full h-full bg-slate-800 rounded-2xl p-6 flex flex-col justify-between border-2 border-indigo-500 shadow-2xl">
+                    <div class="flex justify-between items-center text-sm font-semibold uppercase tracking-wider text-indigo-400">
+                        <span id="card-tipo">Tipo</span>
+                        <span id="card-id-ordem">ID: 1 | Ordem: 1</span>
+                    </div>
+                    <div class="my-auto">
+                        <p class="text-xs text-slate-500 mb-2 font-mono">MODO DE JOGO</p>
+                        <p class="text-xl font-medium text-slate-200">Prepare-se para o desafio lúdico. Tente responder antes de virar!</p>
+                    </div>
+                    <div class="text-xs text-slate-400">Toque para ver a resolução</div>
+                </div>
+
+                <div class="card-back absolute w-full h-full bg-indigo-950 rounded-2xl p-6 flex flex-col justify-between border-2 border-emerald-500 shadow-2xl">
+                    <div class="text-left overflow-y-auto space-y-3 pr-1">
+                        <div>
+                            <h3 class="text-xs font-bold text-emerald-400 uppercase">Dica / Definição:</h3>
+                            <p id="card-dica" class="text-sm text-slate-200 mt-1"></p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold text-amber-400 uppercase">Exemplo Prático:</h3>
+                            <p id="card-exemplo" class="text-sm text-slate-300 font-mono bg-slate-900/50 p-2 rounded mt-1"></p>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-500 text-slate-950 font-bold rounded-xl p-3 mt-2">
+                        <span class="text-xs block uppercase opacity-70">Resposta Correta:</span>
+                        <span id="card-resposta" class="text-lg"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mt-8 flex justify-gap justify-center gap-4">
+            <button onclick="proximaCarta()" class="bg-indigo-600 hover:bg-indigo-500 active:scale-95 transition text-white px-6 py-2 rounded-xl font-medium shadow-md">
+                Próxima Carta 🎲
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let cartas = [];
+        let indiceAtual = 0;
+
+        // Pipeline de Leitura do CSV
+        function carregarDados() {
+            Papa.parse("jogo.csv", {
+                download: true,
+                header: true,
+                delimiter: ";",
+                skipEmptyLines: true,
+                complete: function(resultado) {
+                    cartas = resultado.data;
+                    if(cartas.length > 0) {
+                        document.getElementById('card-container').classList.remove('hidden');
+                        mostrarCarta();
+                    }
+                },
+                error: function(erro) {
+                    console.error("Erro ao ler o pipeline do CSV:", erro);
+                    alert("Por favor, certifique-se de rodar o projeto em um servidor local para que o navegador possa ler o arquivo CSV.");
+                }
+            });
+        }
+
+        function mostrarCarta() {
+            // Desvira a carta antes de carregar os novos dados
+            document.getElementById('card-inner').classList.remove('flipped');
+            
+            setTimeout(() => {
+                const carta = cartas[indiceAtual];
+                document.getElementById('card-tipo').innerText = carta.tipo;
+                document.getElementById('card-id-ordem').innerText = `ID: ${carta.id} • Ordem: ${carta.ordem}`;
+                document.getElementById('card-dica').innerText = carta.dica_definicao;
+                document.getElementById('card-exemplo').innerText = carta.exemplo;
+                document.getElementById('card-resposta').innerText = carta.resposta;
+            }, 150); // Pequeno delay para a transição visual ficar fluida
+        }
+
+        function toggleCard() {
+            document.getElementById('card-inner').classList.toggle('flipped');
+        }
+
+        function proximaCarta() {
+            // Avança o índice ou volta ao início se acabarem as cartas
+            indiceAtual = (indiceAtual + 1) % cartas.length;
+            mostrarCarta();
+        }
+
+        // Inicializa o Pipeline assim que a página carrega
+        window.onload = carregarDados;
+    </script>
+</body>
+</html>
