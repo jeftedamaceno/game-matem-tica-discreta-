@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de Cartas de Lógica</title>
+    <title>Jogo de matemática discreta</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
@@ -22,7 +22,7 @@
 
     <div class="max-w-md w-full text-center">
         <h1 class="text-3xl font-bold mb-2 text-indigo-400">Consulta de Cartas</h1>
-        <p class="text-slate-400 mb-6 text-sm">Digite o ID e a Ordem da pergunta para carregá-la.</p>
+        <p class="text-slate-400 mb-6 text-sm">Buscando dados integrados de cartas.csv e perguntas.csv</p>
 
         <div class="bg-slate-800 p-4 rounded-xl mb-6 border border-slate-700 flex gap-3 items-end justify-center">
             <div class="text-left w-20">
@@ -96,63 +96,87 @@
     </div>
 
     <script>
-        let baseDeDados = [];
+        // Tabelas separadas na memória do navegador
+        let dadosCartas = [];
+        let dadosPerguntas = [];
 
-        // Inicia o pipeline carregando o arquivo CSV
-        function carregarDados() {
-            Papa.parse("./jogo.csv", {
-                download: true,
-                header: true,
-                delimiter: ";",
-                skipEmptyLines: true,
-                complete: function(resultado) {
-                    baseDeDados = resultado.data;
-                    // Força uma busca inicial padrão usando os valores iniciais dos inputs
-                    buscarCarta();
-                },
-                error: function(erro) {
-                    console.error("Erro ao ler o pipeline do CSV:", erro);
-                    alert("Erro ao ler o arquivo CSV. Certifique-se de usar um servidor local (como Live Server) ou o GitHub Pages.");
-                }
+        // Função utilitária para envelopar o PapaParse em uma Promise (garante o carregamento síncrono)
+        function carregarArquivoCSV(url) {
+            return new Promise((resolve, reject) => {
+                Papa.parse(url, {
+                    download: true,
+                    header: true,
+                    delimiter: ";",
+                    skipEmptyLines: true,
+                    complete: function(resultado) {
+                        resolve(resultado.data);
+                    },
+                    error: function(erro) {
+                        reject(erro);
+                    }
+                });
             });
         }
 
-        // Realiza a busca no pipeline baseada no ID e na Ordem
+        // Pipeline que lê AMBOS os arquivos antes de liberar o app
+        function inicializarPipeline() {
+            Promise.all([
+                carregarArquivoCSV("./cartas.csv"),
+                carregarArquivoCSV("./perguntas.csv")
+            ])
+            .then(([resCartas, resPerguntas]) => {
+                dadosCartas = resCartas;
+                dadosPerguntas = resPerguntas;
+                
+                // Executa a primeira busca automática do layout
+                buscarCarta();
+            })
+            .catch(erro => {
+                console.error("Erro no pipeline de arquivos do jogo:", erro);
+                alert("Erro ao ler os arquivos CSV (cartas.csv ou perguntas.csv). Verifique se ambos estão na mesma pasta.");
+            });
+        }
+
+        // Realiza o cruzamento de dados de ambos os CSVs baseado no ID e Ordem
         function buscarCarta() {
             const idBuscado = document.getElementById('busca-id').value.trim();
             const ordemBuscada = document.getElementById('busca-ordem').value.trim();
 
-            // Procura a linha correspondente dentro do arquivo carregado
-            const cartaEncontrada = baseDeDados.find(item => 
+            // 1. Encontra a pergunta correspondente no perguntas.csv
+            const perguntaEncontrada = dadosPerguntas.find(item => 
                 String(item.id) === idBuscado && String(item.ordem) === ordemBuscada
             );
 
-            if (cartaEncontrada) {
-                // Força a carta a desvirar para a frente antes de atualizar os dados
+            // 2. Encontra o gabarito/dicas correspondente no cartas.csv
+            const cartaEncontrada = dadosCartas.find(item => 
+                String(item.id) === idBuscado && String(item.ordem) === ordemBuscada
+            );
+
+            // Verifica se a combinação existe em ambas as planilhas
+            if (perguntaEncontrada && cartaEncontrada) {
+                // Força a carta a fechar/desvirar antes de atualizar os textos
                 document.getElementById('card-inner').classList.remove('flipped');
-                
-                // Reinicia o estado de desfoque de todas as seções do verso
                 resetarOcultamento();
 
-                // Insere os dados nos elementos do HTML após um curtíssimo delay visual
                 setTimeout(() => {
-                    // Mapeia o tipo usando a coluna 'tipo' ou o novo 'titulo' / 'cor' do seu CSV
-                    document.getElementById('card-tipo').innerText = cartaEncontrada.titulo || cartaEncontrada.tipo || cartaEncontrada.cor;
+                    // Define o Cabeçalho (Usa título/tipo/cor de qualquer um deles)
+                    const tituloCard = perguntaEncontrada.titulo || perguntaEncontrada.tipo || cartaEncontrada.tipo || "LÓGICA";
+                    document.getElementById('card-tipo').innerText = tituloCard;
                     document.getElementById('card-id-ordem').innerText = `ID: ${cartaEncontrada.id} • Ordem: ${cartaEncontrada.ordem}`;
                     
-                    // Alimenta a pergunta na frente da carta
-                    document.getElementById('card-pergunta').innerText = cartaEncontrada.pergunta;
+                    // Alimenta a FRENTE com o dado vindo de perguntas.csv
+                    document.getElementById('card-pergunta').innerText = perguntaEncontrada.pergunta;
                     
-                    // Alimenta os dados ocultos no verso da carta
+                    // Alimenta o VERSO com os dados vindos de cartas.csv
                     document.getElementById('card-dica').innerText = cartaEncontrada.dica_definicao;
                     document.getElementById('card-exemplo').innerText = cartaEncontrada.exemplo;
                     document.getElementById('card-resposta').innerText = cartaEncontrada.resposta;
 
-                    // Mostra o container da carta caso estivesse oculto
+                    // Torna o layout visível
                     document.getElementById('card-container').classList.remove('hidden');
                 }, 150);
             } else {
-                alert(`Nenhuma pergunta encontrada para o ID ${idBuscado} com a Ordem ${ordemBuscada}. Verifique os números informados.`);
+                alert(`Combinação não encontrada! Verifique se o ID ${idBuscado} e Ordem ${ordemBuscada} existem tanto em cartas.csv quanto em perguntas.csv.`);
             }
         }
 
@@ -190,7 +214,6 @@
                 el.classList.add('conteudo-oculto');
             });
 
-            // Reseta visualmente os botões do HTML para o estado inicial
             const botoes = document.querySelectorAll('.card-back button');
             botoes.forEach(btn => {
                 if(btn.innerText === "Ocultar") {
@@ -205,8 +228,8 @@
             });
         }
 
-        // Executa a carga do pipeline assim que a página estiver totalmente pronta
-        window.onload = carregarDados;
+        // Dispara o carregamento duplo assim que a página abrir
+        window.onload = inicializarPipeline;
     </script>
 </body>
 </html>

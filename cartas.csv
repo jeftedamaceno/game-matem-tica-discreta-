@@ -1,0 +1,186 @@
+id;cor;titulo;nivel;ordem;pergunta
+
+1;logica;Logica;introdutorio;1;"Qual o valor de ¬V?"
+1;logica;Logica;facil;2;"Quando p → q é falso?"
+1;logica;Logica;medio;3;"Qual o valor de (p ∨ q) ∧ ¬p quando p=F e q=V?"
+1;logica;Logica;dificil;4;"Qual o valor de (p → q) → p quando p=F e q=V?"
+
+2;logica;Logica;introdutorio;1;"Qual o valor de ¬F?"
+2;logica;Logica;facil;2;"Se todo cachorro é animal, todo animal é cachorro?"
+2;logica;Logica;medio;3;"Qual o valor de (p → q) quando p=F e q=F?"
+2;logica;Logica;dificil;4;"Qual o valor de (p ∨ q) ∧ (¬p ∨ ¬q) quando p=V e q=V?"
+
+
+3;logica;Logica;introdutorio;1;"Se p é verdadeiro e q é falso, qual é o valor de p ∧ q?"
+3;logica;Logica;facil;2;"Se p é falso e q é falso, quanto é p ∨ q? monte a tabela verdade"
+3;logica;Logica;dificil;4;"Qual o valor de ¬(¬p) quando p=F?"
+3;logica;Logica;medio;3;"Se chove então a rua molha. Não choveu, então a rua não molhou?"
+
+4;logica;Logica;introdutorio;1;"Ao escolher sair de casa, é verdade que ou você vai sair ou não vai sair?"
+4;logica;Logica;facil;2;"Se está chovendo, então o chão fica molhado. Está chovendo. O que podemos concluir?"
+4;logica;Logica;medio;3;"Qual o valor de (p ∧ (q ∨ r)) quando p=F?"
+4;logica;Logica;dificil;4;"Se todo número múltiplo de 4 é par, todo par é múltiplo de 4?"
+
+5;logica;Logica;introdutorio;1;"Quanto é 010 + 01 em binário?"
+5;logica;Logica;facil;2;"Quanto é (4 + 1) de decimal para binário?"
+5;logica;Logica;medio;3;"Quanto vale ∑(i=1 até 4) 2i?"
+5;logica;Logica;dificil;4;"Quanto vale ∑(i=1 até 5) i^2?"
+
+6;logica;Logica;introdutorio;1;"Quanto vale ∑(i=1 até 5) 1?"
+6;logica;Logica;facil;2;"Quanto vale ∑(i=1 até 3) i?"
+6;logica;Logica;medio;3;"Quanto vale ∑(i=1 até 5) i − ∑(i=1 até 3) i?"
+6;logica;Logica;dificil;4;"Quanto vale ∑(i=1 até 3) (i + 2)^2?"
+
+7;logica;Logica;introdutorio;1;"O que significa ∑(i=1 até n) 1?"
+7;logica;Logica;facil;2;"Quanto vale ∑(i=1 até 4) (2i + 1)?"
+7;logica;Logica;medio;3;"Quanto vale ∑(i=1 até 4) i(i+1)?"
+7;logica;Logica;dificil;4;"O somatório de uma lista sempre vai ser maior que o número inicial?"
+8;logica;Lei de DeMorgan;introdutorio;1;"Qual o valor de ¬(V ∧ F)?"
+8;logica;Lei de DeMorgan;facil;2;"Segundo a Lei de DeMorgan, ¬(p ∨ q) é equivalente a quê?"
+8;logica;Lei de DeMorgan;medio;3;"Qual o valor de ¬(p ∧ q) quando p=V e q=F?"
+8;logica;Lei de DeMorgan;dificil;4;"Qual expressão é equivalente a ¬((p ∨ q) ∧ r)?"
+
+9;logica;Lei de DeMorgan;introdutorio;1;"Qual o valor de ¬(F ∨ F)?"
+9;logica;Lei de DeMorgan;facil;2;"Segundo a Lei de DeMorgan, ¬(p ∧ q) é equivalente a quê?"
+9;logica;Lei de DeMorgan;medio;3;"Qual o valor de ¬(p ∨ q) quando p=F e q=V?"
+9;logica;Lei de DeMorgan;dificil;4;"Qual o valor de (¬p ∧ ¬q) quando p=F e q=F?"
+
+
+10;inducao;Inducao;introdutorio;1;"Se uma propriedade falha no caso base, a indução funciona?"
+10;inducao;Inducao;facil;2;"Na indução forte, o que assumimos?"
+10;inducao;Inducao;medio;3;"Qual é a fórmula da soma dos n primeiros números naturais?"
+10;inducao;Inducao;dificil;4;"Em indução forte, por que usar mais hipóteses?"
+
+11;inducao;Inducao;introdutorio;1;"Para provar que uma propriedade vale para n maior ou igual 2, qual deve ser o caso base?"
+11;inducao;Inducao;facil;2;"O que significa provar P(k) → P(k+1)?"
+11;inducao;Inducao;medio;3;"Qual o papel do domínio na indução?"
+11;inducao;Inducao;dificil;4;"Por que a indução matemática tradicional normalmente começa nos naturais?"
+
+12;inducao;Inducao;introdutorio;1;"Se P(1) é falso, mas P(2) é verdadeiro, pode iniciar em n=2?"
+12;inducao;Inducao;facil;2;"Qual a ideia central da indução?"
+12;inducao;Inducao;medio;3;"Por que indução garante infinitos casos?"
+12;inducao;Inducao;dificil;4;"Qual erro comum na indução?"
+
+13;inducao;Inducao;introdutorio;1;"Indução pode provar desigualdades?"
+13;inducao;Inducao;facil;2;"Qual o papel da hipótese indutiva?"
+13;inducao;Inducao;medio;3;"Qual estrutura geral de uma prova por indução?"
+13;inducao;Inducao;dificil;4;"Provar apenas P(k) → P(k+2) garante todos os naturais?"
+
+14;inducao;Inducao;introdutorio;1;"O que é caso base?"
+14;inducao;Inducao;facil;2;"Qual o primeiro passo da indução matemática?"
+14;inducao;Inducao;medio;3;"O que é o passo indutivo?"
+14;inducao;Inducao;dificil;4;"Na indução, o que acontece se o passo indutivo não usa a hipótese?"
+
+15;inducao;Inducao;introdutorio;1;"Indução funciona para quais conjuntos?"
+15;inducao;Inducao;facil;2;"Para que serve a indução?"
+15;inducao;Inducao;medio;3;"Qual o objetivo do passo indutivo em uma prova?"
+15;inducao;Inducao;dificil;4;"Qual a diferença entre indução simples e forte?"
+
+16;inducao;Inducao;introdutorio;1;"O que é o caso base em uma prova por indução?"
+16;inducao;Inducao;facil;2;"O que assumimos na hipótese indutiva?"
+16;inducao;Inducao;medio;3;"Qual o objetivo de provar P(k+1)?"
+16;inducao;Inducao;dificil;4;"Por que provar apenas o caso base não garante a indução?"
+
+17;inducao;Inducao;introdutorio;1;"Indução matemática é usada principalmente em qual conjunto numérico?"
+17;inducao;Inducao;facil;2;"Qual a ideia principal do passo indutivo?"
+17;inducao;Inducao;medio;3;"Na indução forte, o que pode ser usado como hipótese?"
+17;inducao;Inducao;dificil;4;"Se a hipótese indutiva for falsa, a prova continua válida?"
+
+18;inducao;Inducao;introdutorio;1;"Uma prova por indução pode começar em n=0?"
+18;inducao;Inducao;facil;2;"O que significa provar P(k) → P(k+1)?"
+18;inducao;Inducao;medio;3;"Por que a indução consegue provar infinitos casos?"
+18;inducao;Inducao;dificil;4;"Qual a diferença entre indução simples e indução forte?"
+
+
+19;direta;Direta;introdutorio;1;"O que é demonstração direta?"
+19;direta;Direta;facil;2;"O quadrado de um número par é?"
+19;direta;Direta;medio;3;"Se n é ímpar, então n³ é?"
+19;direta;Direta;dificil;4;"Se n elevado a 2 é par, então n é par?"
+
+20;direta;Direta;introdutorio;1;"Se n é par, então n+1 é?"
+20;direta;Direta;facil;2;"Se a+b é par e a é par, então b é?"
+20;direta;Direta;medio;3;"Se a é par e b é ímpar, então ab é?"
+20;direta;Direta;dificil;4;"Se n é par, então n(n+2) é par?"
+
+21;direta;Direta;introdutorio;1;"Se n é ímpar, então 2n é?"
+21;direta;Direta;facil;2;"Se a e b são pares, então a+b é?"
+21;direta;Direta;medio;3;"Se n é múltiplo de 5, então n+5 é?"
+21;direta;Direta;dificil;4;"Se n é inteiro, então n elevado a 2 + n é par?"
+
+22;direta;Direta;introdutorio;1;"Se n é par, então n/2 é inteiro?"
+22;direta;Direta;facil;2;"Se a é múltiplo de 6, então é múltiplo de 3?"
+22;direta;Direta;medio;3;"Se n é inteiro, então n(n-1) é par?"
+22;direta;Direta;dificil;4;"Se n é inteiro, então ∑(i=1 até n) (i^2 + i)/2, e inteiro?"
+
+23;direta;Direta;introdutorio;1;"Teste surpresa pegue aleatoriamente a sua escolha uma carta de pergunta(direta, indução ou contrapositiva) e responda a questão díficl"
+23;direta;Direta;facil;2;"Se n é múltiplo de 2 e 3, então é múltiplo de?"
+23;direta;Direta;medio;3;"Se n é inteiro, então ∑(i=1 até n) (i(i+1)/2) é inteiro?"
+23;direta;Direta;dificil;4;"Mostre que i² + i é par para qualquer inteiro i, use demonstração direta"
+
+24;direta;Demonstracao Direta;introdutorio;1;"Se n é par, então n+2 é?"
+24;direta;Demonstracao Direta;facil;2;"Se a e b são pares, então a+b é?"
+24;direta;Demonstracao Direta;medio;3;"Se n é múltiplo de 3, então 3n é?"
+24;direta;Demonstracao Direta;dificil;4;"Se n é inteiro, então n²+n é par?"
+
+25;direta;Demonstracao Direta;introdutorio;1;"Se n é ímpar, então n+2 é?"
+25;direta;Demonstracao Direta;facil;2;"Se um número é múltiplo de 5, então termina em 0 ou 5?"
+25;direta;Demonstracao Direta;medio;3;"Se a é par e b é ímpar, então a+b é?"
+25;direta;Demonstracao Direta;dificil;4;"Se n é inteiro, então n(n-1) é par?"
+
+26;direta;Demonstracao Direta;introdutorio;1;"Se n é múltiplo de 2, então n é?"
+26;direta;Demonstracao Direta;facil;2;"Se a e b são múltiplos de 4, então a+b é múltiplo de?"
+26;direta;Demonstracao Direta;medio;3;"Se n é ímpar, então n² é?"
+26;direta;Demonstracao Direta;dificil;4;"Se n é inteiro, então (n+1)² − n² pertence a que subconjunto dos numeros naturais?"
+
+27;direta;Demonstracao Direta;introdutorio;1;"Se n é divisível por 10, então termina em?"
+27;direta;Demonstracao Direta;facil;2;"Sorte grande compre uma carta de apoio e considere que acertou essa questão!(outros jogadores podem atrapalhar essa carta)"
+27;direta;Demonstracao Direta;medio;3;"Se a é múltiplo de 6, então é múltiplo de 3?"
+27;direta;Demonstracao Direta;dificil;4;"Se n é par, então n³ é?"
+
+
+28;contra;Contrapositiva;introdutorio;1;"O que é contrapositiva?"
+28;contra;Contrapositiva;facil;2;"Qual a contrapositiva de p implica q?"
+28;contra;Contrapositiva;medio;3;"Por que usar contrapositiva?"
+28;contra;Contrapositiva;dificil;4;"Qual a contrapositiva de (p ou q) implica r?"
+
+29;contra;Contrapositiva;introdutorio;1;"Se não está molhado então não choveu. Isso equivale a?"
+29;contra;Contrapositiva;facil;2;"Se a luz acende, então há energia. Não há energia. A luz pode estar acesa?"
+29;contra;Contrapositiva;medio;3;"Se um número é múltiplo de 4, então é par. Não é par. Pode ser múltiplo de 4?"
+29;contra;Contrapositiva;dificil;4;"Se passei na prova, então estudei. Não estudei. Posso ter passado?"
+
+30;contra;Contrapositiva;introdutorio;1;"Se uma pessoa é médica, então estudou medicina. Não estudou medicina. Pode ser médica?"
+30;contra;Contrapositiva;facil;2;"Se o carro está ligado, então tem combustível. Não tem combustível. Pode estar ligado?"
+30;contra;Contrapositiva;medio;3;"Se alguém é adulto, então tem mais de 18 anos. Não tem mais de 18. É adulto?"
+30;contra;Contrapositiva;dificil;4;"Se estudo, então aprendo. Não aprendi. Posso ter estudado?"
+
+
+31;contra;Contrapositiva;introdutorio;1;"Se um número é par, então é divisível por 2. Não é divisível por 2. É par?"
+31;contra;Contrapositiva;facil;2;"Se um número termina em 0 então é divisível por 10. Qual contrapositiva?"
+31;contra;Contrapositiva;medio;3;"Se um número é múltiplo de 8 então é múltiplo de 4. Qual contrapositiva?"
+31;contra;Contrapositiva;dificil;4;"Se n² é múltiplo de 3, então n é múltiplo de 3. Qual a contrapositiva?"
+
+32;contra;Contrapositiva;introdutorio;1;"Se um número é ímpar então seu quadrado é ímpar. Qual contrapositiva?"
+32;contra;Contrapositiva;facil;2;"Se |x| = 0 então x = 0. Qual contrapositiva?"
+32;contra;Contrapositiva;medio;3;"Se x² ≥ 4 então |x| ≥ 2. Qual a contrapositiva?"
+32;contra;Contrapositiva;dificil;4;"Se um produto ab é ímpar então a e b são ímpares. Qual contrapositiva?"
+
+33;contra;Contrapositiva;introdutorio;1;"Se x é inteiro então x² é inteiro. Qual contrapositiva?"
+33;contra;Contrapositiva;facil;2;"Se uma função é constante então sua derivada é zero. Qual contrapositiva?"
+33;contra;Contrapositiva;medio;3;"Armadilha regresse 3 cassas, marque o local onde retirou essa carta todos que pararem nela regreção 1 casa "
+33;contra;Contrapositiva;dificil;4;"Qual a principal diferença entre contrapossitiva e prova pro absurdo"
+
+34;contra;Absurdo;introdutorio;1;"O que é contrapositiva?"
+34;contra;Absurdo;facil;2;"Qual a contrapositiva de p → q?"
+34;contra;Absurdo;medio;3;"Se um número não é par, pode ser múltiplo de 4?"
+34;contra;Absurdo;dificil;4;"Se n² é ímpar, então n é ímpar. Qual a contrapositiva?"
+
+35;contra;Absurdo;introdutorio;1;"O que é uma prova por absurdo?"
+35;contra;Absurdo;facil;2;"Em uma prova por absurdo, o que assumimos inicialmente?"
+35;contra;Absurdo;medio;3;"Se uma afirmação leva a contradição, o que concluímos?"
+35;contra;Absurdo;dificil;4;"Por que a prova por absurdo é útil em afirmações difíceis de provar diretamente?"
+
+36;contra;Contrapositiva;introdutorio;1;"Se um número é divisível por 10, então termina em 0. Não termina em 0. É divisível por 10?"
+36;contra;Contrapositiva;facil;2;"Se chove, então a rua molha. A rua não está molhada. Pode ter chovido?"
+36;contra;Contrapositiva;medio;3;"Se treino, então melhoro. Não melhorei. Treinei?"
+36;contra;Contrapositiva;dificil;4;"Se um objeto é metal, então conduz eletricidade. Não conduz. É metal?"
+
