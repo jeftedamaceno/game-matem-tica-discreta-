@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de Cartas de Lógica</title>
-    <!-- Bibliotecas necessárias: PapaParse e Tailwind CSS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
@@ -25,11 +24,10 @@
         <h1 class="text-3xl font-bold mb-2 text-indigo-400">Consulta de Cartas</h1>
         <p class="text-slate-400 mb-6 text-sm">Digite o ID e a Ordem da pergunta para carregá-la.</p>
 
-        <!-- Painel de Busca por ID e Ordem -->
         <div class="bg-slate-800 p-4 rounded-xl mb-6 border border-slate-700 flex gap-3 items-end justify-center">
             <div class="text-left w-20">
                 <label class="text-xs font-bold uppercase text-slate-400 block mb-1">ID</label>
-                <input type="number" id="busca-id" value="19" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-center text-white focus:outline-none focus:border-indigo-500">
+                <input type="number" id="busca-id" value="1" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-center text-white focus:outline-none focus:border-indigo-500">
             </div>
             <div class="text-left w-20">
                 <label class="text-xs font-bold uppercase text-slate-400 block mb-1">Ordem</label>
@@ -40,28 +38,26 @@
             </button>
         </div>
 
-        <!-- Container da Carta Dinâmica -->
         <div id="card-container" class="card-flip w-full h-[450px] cursor-pointer hidden">
             <div id="card-inner" class="card-inner w-full h-full relative">
                 
-                <!-- FRENTE DA CARTA (Click nela faz girar) -->
                 <div onclick="girarCarta()" class="card-front absolute w-full h-full bg-slate-800 rounded-2xl p-6 flex flex-col justify-between border-2 border-indigo-500 shadow-2xl">
                     <div class="flex justify-between items-center text-sm font-semibold uppercase tracking-wider text-indigo-400">
                         <span id="card-tipo">TIPO</span>
                         <span id="card-id-ordem">ID: -- | Ordem: --</span>
                     </div>
-                    <div class="my-auto">
-                        <p class="text-xs text-slate-500 mb-2 font-mono">MODO DE JOGO</p>
-                        <p class="text-xl font-medium text-slate-200">Mentalize a resposta deste ID/Ordem.</p>
+                    <div class="my-auto text-center">
+                        <p class="text-xs text-slate-500 mb-3 font-mono tracking-widest">PERGUNTA</p>
+                        <p id="card-pergunta" class="text-xl font-semibold text-slate-100 bg-slate-900/40 p-4 rounded-xl border border-slate-700/50 shadow-inner"></p>
                     </div>
-                    <div class="text-xs text-indigo-400 font-semibold animate-pulse">Toque na carta para virar 🔄</div>
+                    <div class="text-xs text-indigo-400 font-semibold animate-pulse text-center">
+                        Toque na carta para ver a resolução 🔄
+                    </div>
                 </div>
 
-                <!-- VERSO DA CARTA (Dica, Exemplo e Resposta com botões independentes) -->
                 <div class="card-back absolute w-full h-full bg-indigo-950 rounded-2xl p-5 flex flex-col justify-between border-2 border-emerald-500 shadow-2xl text-left">
                     
                     <div class="space-y-4 overflow-y-auto pr-1">
-                        <!-- Seção Dica/Definição -->
                         <div class="border-b border-indigo-900/50 pb-2">
                             <div class="flex justify-between items-center mb-1">
                                 <h3 class="text-xs font-bold text-emerald-400 uppercase">Dica / Definição:</h3>
@@ -70,7 +66,6 @@
                             <p id="card-dica" class="text-xs text-slate-200 conteudo-oculto"></p>
                         </div>
 
-                        <!-- Seção Exemplo Prático -->
                         <div class="border-b border-indigo-900/50 pb-2">
                             <div class="flex justify-between items-center mb-1">
                                 <h3 class="text-xs font-bold text-amber-400 uppercase">Exemplo Prático:</h3>
@@ -80,7 +75,6 @@
                         </div>
                     </div>
 
-                    <!-- Seção Resposta -->
                     <div class="mt-2">
                         <div class="flex justify-between items-center mb-1 px-1">
                             <span class="text-xs uppercase font-bold text-slate-400">Gabarito:</span>
@@ -91,7 +85,6 @@
                         </div>
                     </div>
 
-                    <!-- Botão para voltar para a frente -->
                     <button onclick="girarCarta()" class="text-center text-xs text-slate-400 hover:text-white mt-2 block w-full transition">
                         ↩ Voltar para a pergunta
                     </button>
@@ -107,7 +100,7 @@
 
         // Inicia o pipeline carregando o arquivo CSV
         function carregarDados() {
-            Papa.parse("./respostas.csv", {
+            Papa.parse("./jogo.csv", {
                 download: true,
                 header: true,
                 delimiter: ";",
@@ -143,8 +136,14 @@
 
                 // Insere os dados nos elementos do HTML após um curtíssimo delay visual
                 setTimeout(() => {
-                    document.getElementById('card-tipo').innerText = cartaEncontrada.tipo || cartaEncontrada.cor;
+                    // Mapeia o tipo usando a coluna 'tipo' ou o novo 'titulo' / 'cor' do seu CSV
+                    document.getElementById('card-tipo').innerText = cartaEncontrada.titulo || cartaEncontrada.tipo || cartaEncontrada.cor;
                     document.getElementById('card-id-ordem').innerText = `ID: ${cartaEncontrada.id} • Ordem: ${cartaEncontrada.ordem}`;
+                    
+                    // Alimenta a pergunta na frente da carta
+                    document.getElementById('card-pergunta').innerText = cartaEncontrada.pergunta;
+                    
+                    // Alimenta os dados ocultos no verso da carta
                     document.getElementById('card-dica').innerText = cartaEncontrada.dica_definicao;
                     document.getElementById('card-exemplo').innerText = cartaEncontrada.exemplo;
                     document.getElementById('card-resposta').innerText = cartaEncontrada.resposta;
