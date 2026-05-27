@@ -122,7 +122,7 @@
         function inicializarPipeline() {
             Promise.all([
                 carregarArquivoCSV("./cartas.csv"),
-                carregarArquivoCSV("./perguntas.csv")
+                carregarArquivoCSV("./respastas.csv")
             ])
             .then(([resCartas, resPerguntas]) => {
                 dadosCartas = resCartas;
