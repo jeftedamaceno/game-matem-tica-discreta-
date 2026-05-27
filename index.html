@@ -67,8 +67,10 @@
         let indiceAtual = 0;
 
         // Pipeline de Leitura do CSV
+// Pipeline de Leitura do CSV ajustado para o GitHub Pages
         function carregarDados() {
-            Papa.parse("respostas.csv", {
+            // Adicionamos o "./" antes do nome do arquivo
+            Papa.parse("./respostas.csv", {
                 download: true,
                 header: true,
                 delimiter: ";",
@@ -82,7 +84,6 @@
                 },
                 error: function(erro) {
                     console.error("Erro ao ler o pipeline do CSV:", erro);
-                    alert("Por favor, certifique-se de rodar o projeto em um servidor local para que o navegador possa ler o arquivo CSV.");
                 }
             });
         }
