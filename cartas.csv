@@ -1,31 +1,24 @@
 id;cor;titulo;nivel;ordem;pergunta
-
 1;logica;Logica;introdutorio;1;"Qual o valor de ¬V?"
 1;logica;Logica;facil;2;"Quando p → q é falso?"
 1;logica;Logica;medio;3;"Qual o valor de (p ∨ q) ∧ ¬p quando p=F e q=V?"
 1;logica;Logica;dificil;4;"Qual o valor de (p → q) → p quando p=F e q=V?"
-
 2;logica;Logica;introdutorio;1;"Qual o valor de ¬F?"
 2;logica;Logica;facil;2;"Se todo cachorro é animal, todo animal é cachorro?"
 2;logica;Logica;medio;3;"Qual o valor de (p → q) quando p=F e q=F?"
 2;logica;Logica;dificil;4;"Qual o valor de (p ∨ q) ∧ (¬p ∨ ¬q) quando p=V e q=V?"
-
-
 3;logica;Logica;introdutorio;1;"Se p é verdadeiro e q é falso, qual é o valor de p ∧ q?"
 3;logica;Logica;facil;2;"Se p é falso e q é falso, quanto é p ∨ q? monte a tabela verdade"
 3;logica;Logica;dificil;4;"Qual o valor de ¬(¬p) quando p=F?"
 3;logica;Logica;medio;3;"Se chove então a rua molha. Não choveu, então a rua não molhou?"
-
 4;logica;Logica;introdutorio;1;"Ao escolher sair de casa, é verdade que ou você vai sair ou não vai sair?"
 4;logica;Logica;facil;2;"Se está chovendo, então o chão fica molhado. Está chovendo. O que podemos concluir?"
 4;logica;Logica;medio;3;"Qual o valor de (p ∧ (q ∨ r)) quando p=F?"
 4;logica;Logica;dificil;4;"Se todo número múltiplo de 4 é par, todo par é múltiplo de 4?"
-
 5;logica;Logica;introdutorio;1;"Quanto é 010 + 01 em binário?"
 5;logica;Logica;facil;2;"Quanto é (4 + 1) de decimal para binário?"
 5;logica;Logica;medio;3;"Quanto vale ∑(i=1 até 4) 2i?"
 5;logica;Logica;dificil;4;"Quanto vale ∑(i=1 até 5) i^2?"
-
 6;logica;Logica;introdutorio;1;"Quanto vale ∑(i=1 até 5) 1?"
 6;logica;Logica;facil;2;"Quanto vale ∑(i=1 até 3) i?"
 6;logica;Logica;medio;3;"Quanto vale ∑(i=1 até 5) i − ∑(i=1 até 3) i?"
@@ -39,7 +32,6 @@ id;cor;titulo;nivel;ordem;pergunta
 8;logica;Lei de DeMorgan;facil;2;"Segundo a Lei de DeMorgan, ¬(p ∨ q) é equivalente a quê?"
 8;logica;Lei de DeMorgan;medio;3;"Qual o valor de ¬(p ∧ q) quando p=V e q=F?"
 8;logica;Lei de DeMorgan;dificil;4;"Qual expressão é equivalente a ¬((p ∨ q) ∧ r)?"
-
 9;logica;Lei de DeMorgan;introdutorio;1;"Qual o valor de ¬(F ∨ F)?"
 9;logica;Lei de DeMorgan;facil;2;"Segundo a Lei de DeMorgan, ¬(p ∧ q) é equivalente a quê?"
 9;logica;Lei de DeMorgan;medio;3;"Qual o valor de ¬(p ∨ q) quando p=F e q=V?"
@@ -50,22 +42,18 @@ id;cor;titulo;nivel;ordem;pergunta
 10;inducao;Inducao;facil;2;"Na indução forte, o que assumimos?"
 10;inducao;Inducao;medio;3;"Qual é a fórmula da soma dos n primeiros números naturais?"
 10;inducao;Inducao;dificil;4;"Em indução forte, por que usar mais hipóteses?"
-
 11;inducao;Inducao;introdutorio;1;"Para provar que uma propriedade vale para n maior ou igual 2, qual deve ser o caso base?"
 11;inducao;Inducao;facil;2;"O que significa provar P(k) → P(k+1)?"
 11;inducao;Inducao;medio;3;"Qual o papel do domínio na indução?"
 11;inducao;Inducao;dificil;4;"Por que a indução matemática tradicional normalmente começa nos naturais?"
-
 12;inducao;Inducao;introdutorio;1;"Se P(1) é falso, mas P(2) é verdadeiro, pode iniciar em n=2?"
 12;inducao;Inducao;facil;2;"Qual a ideia central da indução?"
 12;inducao;Inducao;medio;3;"Por que indução garante infinitos casos?"
 12;inducao;Inducao;dificil;4;"Qual erro comum na indução?"
-
 13;inducao;Inducao;introdutorio;1;"Indução pode provar desigualdades?"
 13;inducao;Inducao;facil;2;"Qual o papel da hipótese indutiva?"
 13;inducao;Inducao;medio;3;"Qual estrutura geral de uma prova por indução?"
 13;inducao;Inducao;dificil;4;"Provar apenas P(k) → P(k+2) garante todos os naturais?"
-
 14;inducao;Inducao;introdutorio;1;"O que é caso base?"
 14;inducao;Inducao;facil;2;"Qual o primeiro passo da indução matemática?"
 14;inducao;Inducao;medio;3;"O que é o passo indutivo?"
