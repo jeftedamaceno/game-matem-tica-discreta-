@@ -22,7 +22,7 @@
 
     <div class="max-w-md w-full text-center">
         <h1 class="text-3xl font-bold mb-2 text-indigo-400">Consulta de Cartas</h1>
-        <p class="text-slate-400 mb-6 text-sm">Buscando dados integrados de cartas.csv e perguntas.csv</p>
+        <p class="text-slate-400 mb-6 text-sm">Buscando dados integrados de cartas.csv e respostas.csv</p>
 
         <div class="bg-slate-800 p-4 rounded-xl mb-6 border border-slate-700 flex gap-3 items-end justify-center">
             <div class="text-left w-20">
@@ -118,11 +118,11 @@
             });
         }
 
-        // Pipeline que carrega cartas.csv e perguntas.csv simultaneamente
+        // Pipeline que carrega cartas.csv e respostas.csv simultaneamente
         function inicializarPipeline() {
             Promise.all([
                 carregarArquivoCSV("./cartas.csv"),
-                carregarArquivoCSV("./perguntas.csv")
+                carregarArquivoCSV("./respostas.csv")
             ])
             .then(([resCartas, resPerguntas]) => {
                 dadosCartas = resCartas;
@@ -133,7 +133,7 @@
             })
             .catch(erro => {
                 console.error("Erro no pipeline de arquivos do jogo:", erro);
-                alert("Erro ao carregar os arquivos CSV. Certifique-se de que os arquivos 'cartas.csv' e 'perguntas.csv' estão com esses nomes exatos e salvos na mesma pasta do index.html.");
+                alert("Erro ao carregar os arquivos CSV. Certifique-se de que os arquivos 'cartas.csv' e 'respostas.csv' estão com esses nomes exatos e salvos na mesma pasta do index.html.");
             });
         }
 
@@ -142,7 +142,7 @@
             const idBuscado = document.getElementById('busca-id').value.trim();
             const ordemBuscada = document.getElementById('busca-ordem').value.trim();
 
-            // 1. Procura a pergunta em perguntas.csv
+            // 1. Procura a pergunta em respostas.csv
             const perguntaEncontrada = dadosPerguntas.find(item => 
                 String(item.id) === idBuscado && String(item.ordem) === ordemBuscada
             );
@@ -164,7 +164,7 @@
                     document.getElementById('card-tipo').innerText = tituloCard;
                     document.getElementById('card-id-ordem').innerText = `ID: ${cartaEncontrada.id} • Ordem: ${cartaEncontrada.ordem}`;
                     
-                    // Atualiza a FRENTE com perguntas.csv
+                    // Atualiza a FRENTE com respostas.csv
                     document.getElementById('card-pergunta').innerText = perguntaEncontrada.pergunta;
                     
                     // Atualiza o VERSO com cartas.csv
@@ -176,7 +176,7 @@
                     document.getElementById('card-container').classList.remove('hidden');
                 }, 150);
             } else {
-                alert(`Combinação não encontrada! Verifique se o ID ${idBuscado} e Ordem ${ordemBuscada} existem tanto em cartas.csv quanto em perguntas.csv.`);
+                alert(`Combinação não encontrada! Verifique se o ID ${idBuscado} e Ordem ${ordemBuscada} existem tanto em cartas.csv quanto em respostas.csv.`);
             }
         }
 
