@@ -22,23 +22,23 @@
 
     <div class="max-w-md w-full text-center">
         <h1 class="text-3xl font-bold mb-2 text-indigo-400">Consulta de Cartas</h1>
-        <p class="text-slate-400 mb-6 text-sm">Buscando dados integrados de cartas.csv e respostas.csv</p>
+        <p class="text-slate-400 mb-6 text-sm">Buscando dados integrados de cartas.csv (perguntas) e respostas.csv</p>
 
         <div class="bg-slate-800 p-4 rounded-xl mb-6 border border-slate-700 flex gap-3 items-end justify-center">
             <div class="text-left w-20">
                 <label class="text-xs font-bold uppercase text-slate-400 block mb-1">ID</label>
-                <input type="number" id="busca-id" value="1" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-center text-white focus:outline-none focus:border-indigo-500">
+                <input type="number" id="busca-id" value="1" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-center text-white text-lg focus:outline-none focus:border-indigo-500">
             </div>
             <div class="text-left w-20">
                 <label class="text-xs font-bold uppercase text-slate-400 block mb-1">Ordem</label>
-                <input type="number" id="busca-ordem" value="1" min="1" max="4" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-center text-white focus:outline-none focus:border-indigo-500">
+                <input type="number" id="busca-ordem" value="1" min="1" max="4" class="w-full bg-slate-900 border border-slate-600 rounded p-2 text-center text-white text-lg focus:outline-none focus:border-indigo-500">
             </div>
-            <button onclick="buscarCarta()" class="bg-indigo-600 hover:bg-indigo-500 active:scale-95 transition text-white font-bold px-4 py-2 rounded h-10 cursor-pointer">
+            <button onclick="buscarCarta()" class="bg-indigo-600 hover:bg-indigo-500 active:scale-95 transition text-white font-bold px-5 py-2.5 rounded h-12 flex items-center justify-center text-base cursor-pointer shadow-md">
                 Buscar 🔍
             </button>
         </div>
 
-        <div id="card-container" class="card-flip w-full h-[450px] cursor-pointer hidden">
+        <div id="card-container" class="card-flip w-full h-[480px] cursor-pointer hidden">
             <div id="card-inner" class="card-inner w-full h-full relative">
                 
                 <div onclick="girarCarta()" class="card-front absolute w-full h-full bg-slate-800 rounded-2xl p-6 flex flex-col justify-between border-2 border-indigo-500 shadow-2xl">
@@ -50,7 +50,7 @@
                         <p class="text-xs text-slate-500 mb-3 font-mono tracking-widest">PERGUNTA</p>
                         <p id="card-pergunta" class="text-xl font-semibold text-slate-100 bg-slate-900/40 p-4 rounded-xl border border-slate-700/50 shadow-inner"></p>
                     </div>
-                    <div class="text-xs text-indigo-400 font-semibold animate-pulse text-center">
+                    <div class="text-sm text-indigo-400 font-semibold animate-pulse text-center bg-slate-900/30 py-2 rounded-lg">
                         Toque na carta para ver a resolução 🔄
                     </div>
                 </div>
@@ -58,34 +58,34 @@
                 <div class="card-back absolute w-full h-full bg-indigo-950 rounded-2xl p-5 flex flex-col justify-between border-2 border-emerald-500 shadow-2xl text-left">
                     
                     <div class="space-y-4 overflow-y-auto pr-1">
-                        <div class="border-b border-indigo-900/50 pb-2">
-                            <div class="flex justify-between items-center mb-1">
-                                <h3 class="text-xs font-bold text-emerald-400 uppercase">Dica / Definição:</h3>
-                                <button onclick="revelarSecao('card-dica', this)" class="text-[10px] bg-indigo-800 hover:bg-indigo-700 text-white px-2 py-0.5 rounded font-medium transition cursor-pointer">Revelar</button>
+                        <div class="border-b border-indigo-900/50 pb-3">
+                            <div class="flex justify-between items-center mb-1.5">
+                                <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Dica / Definição:</h3>
+                                <button onclick="revelarSecao('card-dica', this)" class="text-xs bg-indigo-800 hover:bg-indigo-700 text-white min-w-[80px] py-2 px-3 rounded-lg font-bold transition cursor-pointer shadow-sm">Revelar</button>
                             </div>
-                            <p id="card-dica" class="text-xs text-slate-200 conteudo-oculto"></p>
+                            <p id="card-dica" class="text-sm text-slate-200 conteudo-oculto leading-relaxed"></p>
                         </div>
 
-                        <div class="border-b border-indigo-900/50 pb-2">
-                            <div class="flex justify-between items-center mb-1">
-                                <h3 class="text-xs font-bold text-amber-400 uppercase">Exemplo Prático:</h3>
-                                <button onclick="revelarSecao('card-exemplo', this)" class="text-[10px] bg-indigo-800 hover:bg-indigo-700 text-white px-2 py-0.5 rounded font-medium transition cursor-pointer">Revelar</button>
+                        <div class="border-b border-indigo-900/50 pb-3">
+                            <div class="flex justify-between items-center mb-1.5">
+                                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider">Exemplo Prático:</h3>
+                                <button onclick="revelarSecao('card-exemplo', this)" class="text-xs bg-indigo-800 hover:bg-indigo-700 text-white min-w-[80px] py-2 px-3 rounded-lg font-bold transition cursor-pointer shadow-sm">Revelar</button>
                             </div>
-                            <p id="card-exemplo" class="text-xs text-slate-300 font-mono bg-slate-900/50 p-2 rounded mt-1 conteudo-oculto"></p>
+                            <p id="card-exemplo" class="text-sm text-slate-300 font-mono bg-slate-900/50 p-2.5 rounded mt-1 conteudo-oculto"></p>
                         </div>
                     </div>
 
-                    <div class="mt-2">
-                        <div class="flex justify-between items-center mb-1 px-1">
-                            <span class="text-xs uppercase font-bold text-slate-400">Gabarito:</span>
-                            <button onclick="revelarSecao('card-resposta', this)" class="text-[10px] bg-emerald-700 hover:bg-emerald-600 text-white px-2 py-0.5 rounded font-medium transition cursor-pointer">Revelar Resposta</button>
+                    <div class="mt-2 bg-slate-900/40 p-2 rounded-xl border border-indigo-900/40">
+                        <div class="flex justify-between items-center mb-2 px-1">
+                            <span class="text-xs uppercase font-bold text-slate-400 tracking-wider">Gabarito:</span>
+                            <button onclick="revelarSecao('card-resposta', this)" class="text-xs bg-emerald-700 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg font-bold transition cursor-pointer shadow-md">Revelar Resposta</button>
                         </div>
-                        <div class="bg-emerald-500 text-slate-950 font-bold rounded-xl p-3 text-center min-h-[50px] flex items-center justify-center">
+                        <div class="bg-emerald-500 text-slate-950 font-bold rounded-xl p-3 text-center min-h-[55px] flex items-center justify-center shadow-inner">
                             <span id="card-resposta" class="text-sm conteudo-oculto"></span>
                         </div>
                     </div>
 
-                    <button onclick="girarCarta()" class="text-center text-xs text-slate-400 hover:text-white mt-2 block w-full transition cursor-pointer">
+                    <button onclick="girarCarta()" class="text-center text-sm font-medium text-slate-300 hover:text-white bg-indigo-900/40 hover:bg-indigo-900/80 py-2.5 rounded-xl block w-full transition cursor-pointer border border-indigo-800/50 mt-2">
                         ↩ Voltar para a pergunta
                     </button>
                 </div>
@@ -96,11 +96,10 @@
     </div>
 
     <script>
-        // Tabelas separadas guardadas na memória
-        let dadosCartas = [];
-        let dadosPerguntas = [];
+        // Memória local do app
+        let dadosCartas = [];     // Agora vai conter as perguntas (cartas.csv)
+        let dadosRespostas = [];  // Agora vai conter as dicas/gabaritos (respostas.csv)
 
-        // Função para carregar cada CSV individualmente com Promises
         function carregarArquivoCSV(url) {
             return new Promise((resolve, reject) => {
                 Papa.parse(url, {
@@ -118,61 +117,62 @@
             });
         }
 
-        // Pipeline que carrega cartas.csv e respostas.csv simultaneamente
         function inicializarPipeline() {
+            // Dispara a leitura paralela dos dois arquivos locais
             Promise.all([
                 carregarArquivoCSV("./cartas.csv"),
                 carregarArquivoCSV("./respostas.csv")
             ])
-            .then(([resCartas, resPerguntas]) => {
-                dadosCartas = resCartas;
-                dadosPerguntas = resPerguntas;
+            .then(([resCartas, resRespostas]) => {
+                // Atribuição correta baseada no seu cenário real:
+                dadosCartas = resCartas;       // cartas.csv tem as perguntas
+                dadosRespostas = resRespostas; // respostas.csv tem as resoluções
                 
-                // Realiza a busca padrão inicial do app
+                // Força a busca automática do ID 1 Ordem 1 ao iniciar
                 buscarCarta();
             })
             .catch(erro => {
-                console.error("Erro no pipeline de arquivos do jogo:", erro);
-                alert("Erro ao carregar os arquivos CSV. Certifique-se de que os arquivos 'cartas.csv' e 'respostas.csv' estão com esses nomes exatos e salvos na mesma pasta do index.html.");
+                console.error("Erro no pipeline de arquivos:", erro);
+                alert("Erro ao ler arquivos. Certifique-se de que 'cartas.csv' e 'respostas.csv' estão na mesma pasta do index.html.");
             });
         }
 
-        // Executa a busca cruzada nas duas tabelas por ID e Ordem
         function buscarCarta() {
             const idBuscado = document.getElementById('busca-id').value.trim();
             const ordemBuscada = document.getElementById('busca-ordem').value.trim();
 
-            // 1. Procura a pergunta em respostas.csv
-            const perguntaEncontrada = dadosPerguntas.find(item => 
+            if (!dadosCartas.length || !dadosRespostas.length) return;
+
+            // 1. Procura a pergunta correspondente dentro de cartas.csv
+            const perguntaEncontrada = dadosCartas.find(item => 
                 String(item.id) === idBuscado && String(item.ordem) === ordemBuscada
             );
 
-            // 2. Procura as dicas e respostas em cartas.csv
-            const cartaEncontrada = dadosCartas.find(item => 
+            // 2. Procura a dica/resposta correspondente dentro de respostas.csv
+            const respostaEncontrada = dadosRespostas.find(item => 
                 String(item.id) === idBuscado && String(item.ordem) === ordemBuscada
             );
 
-            // Verifica se achou os dados nos dois arquivos para cruzar as informações
-            if (perguntaEncontrada && cartaEncontrada) {
-                // Desvira a carta para a frente antes de trocar os textos
+            // Se achar a combinação cruzando os dois arquivos
+            if (perguntaEncontrada && respostaEncontrada) {
                 document.getElementById('card-inner').classList.remove('flipped');
                 resetarOcultamento();
 
                 setTimeout(() => {
-                    // Monta o cabeçalho
-                    const tituloCard = perguntaEncontrada.titulo || perguntaEncontrada.tipo || cartaEncontrada.tipo || "LÓGICA";
+                    // Define o Título/Tipo da carta
+                    const tituloCard = perguntaEncontrada.titulo || perguntaEncontrada.tipo || respostaEncontrada.tipo || "LÓGICA";
                     document.getElementById('card-tipo').innerText = tituloCard;
-                    document.getElementById('card-id-ordem').innerText = `ID: ${cartaEncontrada.id} • Ordem: ${cartaEncontrada.ordem}`;
+                    document.getElementById('card-id-ordem').innerText = `ID: ${perguntaEncontrada.id} • Ordem: ${perguntaEncontrada.ordem}`;
                     
-                    // Atualiza a FRENTE com respostas.csv
+                    // Alimenta a FRENTE com o campo do cartas.csv
                     document.getElementById('card-pergunta').innerText = perguntaEncontrada.pergunta;
                     
-                    // Atualiza o VERSO com cartas.csv
-                    document.getElementById('card-dica').innerText = cartaEncontrada.dica_definicao;
-                    document.getElementById('card-exemplo').innerText = cartaEncontrada.exemplo;
-                    document.getElementById('card-resposta').innerText = cartaEncontrada.resposta;
+                    // Alimenta o VERSO com os campos do respostas.csv
+                    document.getElementById('card-dica').innerText = respostaEncontrada.dica_definicao;
+                    document.getElementById('card-exemplo').innerText = respostaEncontrada.exemplo;
+                    document.getElementById('card-resposta').innerText = respostaEncontrada.resposta;
 
-                    // Mostra a carta na tela
+                    // Torna o bloco visível
                     document.getElementById('card-container').classList.remove('hidden');
                 }, 150);
             } else {
@@ -180,12 +180,10 @@
             }
         }
 
-        // Função para rotacionar a carta
         function girarCarta() {
             document.getElementById('card-inner').classList.toggle('flipped');
         }
 
-        // Função para remover ou adicionar o desfoque de cada seção
         function revelarSecao(idElemento, botao) {
             const elemento = document.getElementById(idElemento);
             elemento.classList.toggle('conteudo-oculto');
@@ -205,13 +203,14 @@
             }
         }
 
-        // Reseta os botões e aplica o desfoque novamente ao mudar de carta
         function resetarOcultamento() {
             const ids = ['card-dica', 'card-exemplo', 'card-resposta'];
             ids.forEach(id => {
                 const el = document.getElementById(id);
-                el.classList.remove('conteudo-visivel');
-                el.classList.add('conteudo-oculto');
+                if(el) {
+                    el.classList.remove('conteudo-visivel');
+                    el.classList.add('conteudo-oculto');
+                }
             });
 
             const botoes = document.querySelectorAll('.card-back button');
@@ -219,16 +218,16 @@
                 if(btn.innerText === "Ocultar") {
                     if(btn.getAttribute('onclick').includes('card-resposta')) {
                         btn.innerText = "Revelar Resposta";
-                        btn.className = "text-[10px] bg-emerald-700 hover:bg-emerald-600 text-white px-2 py-0.5 rounded font-medium transition cursor-pointer";
+                        btn.className = "text-xs bg-emerald-700 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg font-bold transition cursor-pointer shadow-md";
                     } else {
                         btn.innerText = "Revelar";
-                        btn.className = "text-[10px] bg-indigo-800 hover:bg-indigo-700 text-white px-2 py-0.5 rounded font-medium transition cursor-pointer";
+                        btn.className = "text-xs bg-indigo-800 hover:bg-indigo-700 text-white min-w-[80px] py-2 px-3 rounded-lg font-bold transition cursor-pointer shadow-sm";
                     }
                 }
             });
         }
 
-        // Garante que a inicialização do pipeline rode assim que a página terminar de carregar
+        // Executa a carga assim que a árvore de elementos html estiver montada
         document.addEventListener("DOMContentLoaded", inicializarPipeline);
     </script>
 </body>
