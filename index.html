@@ -121,8 +121,8 @@
         // Pipeline que carrega cartas.csv e respostas.csv simultaneamente
         function inicializarPipeline() {
             Promise.all([
-                carregarArquivoCSV("cartas.csv"),
-                carregarArquivoCSV("respostas.csv")
+                carregarArquivoCSV("./cartas.csv"),
+                carregarArquivoCSV("./respostas.csv")
             ])
             .then(([resCartas, resPerguntas]) => {
                 dadosCartas = resCartas;
