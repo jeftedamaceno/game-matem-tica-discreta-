@@ -1,0 +1,17 @@
+
+id;titApoio;efeApoio;gatilhoApoio;tipoApoio;titMaldade;efeMaldade;gatilhoMaldade;tipoMaldade
+1;Definição;Peça a definição/dica do conceito da pergunta;pos_leitura;dica_definicao;Sem papel;Jogador responde sem papel e caneta;pos_leitura;sem_papel
+2;Definição;Peça a definição/dica do conceito da pergunta;pos_leitura;dica_definicao;Troca jogador;Escolha um oponente para responder por você (Erro: ele -2 / Acerto: você +3);pos_leitura;forçar_outro
+3;Exemplo;Peça um exemplo da questão;pos_leitura;dica_exemplo;Retrocesso geral;Todos os outros jogadores voltam 1 casa imediatamente;qualquer_momento;retrocesso_geral
+4;Exemplo;Peça um exemplo da questão;pos_leitura;dica_exemplo;Penalidade dupla;Use no turno alheio: Se o respondente errar, você escolhe quem perde 3 casas com ele;pos_leitura;penalidade_dupla
+5;Troca;Troque a pergunta atual por outra;pos_leitura;trocar_pergunta;Penalidade dupla;Use no turno alheio: Se o respondente errar, você escolhe quem perde 3 casas com ele;pos_leitura;penalidade_dupla
+6;Escudo;Pule sua vez sem penalidade;pos_leitura;pular_vez;Pressão dupla;O jogador da vez deve responder duas perguntas consecutivas para pontuar;pos_leitura;pressao_dupla
+7;Contra;Anule uma carta negativa jogada contra você;reacao;anular_maldade;Sem papel;Jogador responde sem papel e caneta;pos_leitura;sem_papel
+8;Reflexão;Anule todas as maldades da mesa;qualquer_momento;anular_maldade;Troca jogador;Escolha um oponente para responder por você (Erro: ele -2 / Acerto: você +3);pos_leitura;forçar_outro
+9;Definição;Peça a definição/dica do conceito da pergunta;pos_leitura;dica_definicao;Troca jogador;Escolha um oponente para responder por você (Erro: ele -2 / Acerto: você +3);pos_leitura;forçar_outro
+10;Exemplo;Peça um exemplo da questão;pos_leitura;dica_exemplo;Retrocesso geral;Todos os outros jogadores voltam 1 casa imediatamente;qualquer_momento;retrocesso_geral
+11;Troca;Troque a pergunta atual por outra;pos_leitura;trocar_pergunta;Penalidade dupla;Use no turno alheio: Se o respondente errar, você escolhe quem perde 3 casas com ele;pos_leitura;penalidade_dupla
+12;Escudo;Pule sua vez sem penalidade;pos_leitura;pular_vez;Pressão dupla;O jogador da vez deve responder duas perguntas consecutivas para pontuar;pos_leitura;pressao_dupla
+13;Contra;Anule uma carta negativa jogada contra você;reacao;anular_maldade;Penalidade dupla;Use no turno alheio: Se o respondente errar, você escolhe quem perde 3 casas com ele;pos_leitura;penalidade_dupla
+14;Reflexão;Devolva todas cartas negativas aos donos originais;qualquer_momento;refletir_maldade;Pressão dupla;O jogador da vez deve responder duas perguntas consecutivas para pontuar;pos_leitura;pressao_dupla
+15;Reflexão;Você recebe 2 perguntas e escolhe uma para responder;pos_leitura;escolha_dupla;Retrocesso geral;Todos os outros jogadores voltam 1 casa imediatamente;qualquer_momento;retrocesso_geral

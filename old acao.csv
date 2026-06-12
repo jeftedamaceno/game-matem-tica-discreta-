@@ -1,0 +1,16 @@
+id;titApoio;efeApoio;regApoio;titMaldade;efeMaldade;regMaldade
+1;Definição;Peça a definição/dica do conceito da pergunta;Use depois de ler a pergunta ;Sem papel;Jogador responde sem papel e caneta;Use depois do ponente ler a pergunta 
+2;Definição;Peça a definição/dica do conceito da pergunta;Use depois de ler a pergunta ;Troca jogador;Outro jogador responde por você caso o jogador erre ele anda -2 casas caso acerte você anda 3 casas;Use depois de ler a pergunta
+3;Exemplo;Peça um exemplo da questão;Use depois de ler a pergunta ;Retrocesso geral;Todos menos você voltam uma casa;Use a qualquer momento
+4;Exemplo;Peça um exemplo da questão;Use depois de ler a pergunta ;Penalidade dupla;Se errar, outro jogador perde junto Ambos retrocedem 3 casas;Use depois de ler a pergunta 
+5;Troca;Troque a pergunta atual por outra;Use depois de ler a pergunta ;Penalidade dupla;Se errar, outro jogador perde junto Ambos retrocedem 3 casas;Use depois de ler a pergunta 
+6;Escudo;Pule sua vez sem penalidade;Use depois de ler a pergunta ;Pressão dupla;Jogador responde duas perguntas;Use no turno do oponente e ele precisa acertar ambas
+7;Contra;Anule uma carta negativa jogada contra você;Use como resposta;Sem papel;Jogador responde sem papel e caneta;Use durante a resposta
+8;Reflexão;Anule 2 cartas negativas;Use a qualquer momento;Troca jogador;Outro jogador responde por você caso o jogador erre ele anda -2 casas caso acerte você anda 3 casas;Use depois de ler a pergunta
+9;Definição;Peça a definição/dica do conceito da pergunta;Use depois de ler a pergunta ;Troca jogador;Outro jogador responde por você caso o jogador erre ele anda -2 casas caso acerte você anda 3 casas;Use depois de ler a pergunta
+10;Exemplo;Peça um exemplo da questão;Use depois de ler a pergunta ;Retrocesso geral;Todos menos você voltam uma casa;Use a qualquer momento
+11;Troca;Troque a pergunta atual por outra;Use depois de ler a pergunta ;Penalidade dupla;Se errar, outro jogador perde junto Ambos retrocedem 3 casas;Use depois de ler a pergunta 
+12;Escudo;Pule sua vez sem penalidade;Use depois de ler a pergunta ;Pressão dupla;Jogador responde duas perguntas;Use no turno do oponente e ele precisa acertar ambas
+13;Contra;Anule uma carta negativa jogada contra você;Use como resposta;Penalidade dupla;Se errar, outro jogador perde junto Ambos retrocedem 3 casas;Use depois de ler a pergunta 
+14;Reflexão;Devolva todas cartas negativas aos donos Efeitos são ativados;Use a qualquer momento;Pressão dupla;Jogador responde duas perguntas;Use no turno do oponente e ele precisa acertar ambas
+15;Reflexão;Você recebe 2 perguntas e escolhe uma para responder;Use depois de ler a pergunta ;Retrocesso geral;Todos menos você voltam uma casa;Use a qualquer momento
